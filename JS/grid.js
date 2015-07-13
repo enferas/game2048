@@ -224,7 +224,7 @@ Grid.prototype.left = function(){
 						tile = this.Board[i][j];
 					}
 				}
-				else if(i != tile.y+1){
+				else if(j != tile.y+1){
 					this.Board[tile.x][tile.y+1].value = this.Board[i][j].value;
 					this.Board[i][j].value = 0;
 					tile = this.Board[tile.x][tile.y+1];
@@ -270,7 +270,7 @@ Grid.prototype.right = function(){
 						tile = this.Board[i][j];
 					}
 				}
-				else if(i != tile.y-1){
+				else if(j != tile.y-1){
 					this.Board[tile.x][tile.y-1].value = this.Board[i][j].value;
 					this.Board[i][j].value = 0;
 					tile = this.Board[tile.x][tile.y-1];
