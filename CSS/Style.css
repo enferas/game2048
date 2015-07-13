@@ -12,6 +12,8 @@ body{
     float:left;
     background-color:#ccc;
     margin-bottom:4px;
+    text-align: center;
+    font: 20px arial, sans-serif;
 }
 
 .spacing{
