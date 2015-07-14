@@ -27,6 +27,3 @@ window.onkeyup = function(e) {
    	this.grid.print();
 	}
 }
- 
-
-

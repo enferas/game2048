@@ -1,6 +1,7 @@
 function Grid(size) {
   this.size = size;
   this.Board = [];
+  this.score = 0;
 
 	for (var i = 0; i < this.size; i++) {
 	    var row = this.Board[i] = [];
@@ -24,6 +25,7 @@ Grid.prototype.print = function(){
 			document.getElementById(curentBox).innerHTML = "";
 	    }
 	  }
+	document.getElementById("score").innerHTML = this.score.toString();
 }
 
 Grid.prototype.color = function(curentBox, value){
@@ -115,7 +117,8 @@ Grid.prototype.up = function(){
 						change = true;			
 					}
 					else if(this.Board[i][j].value == tile.value){
-						this.Board[tile.x][tile.y].value *= 2;	
+						this.Board[tile.x][tile.y].value *= 2;
+						this.score += this.Board[tile.x][tile.y].value;
 						this.Board[i][j].value = 0;
 						cond = true;	
 						change = true;			
@@ -163,6 +166,7 @@ Grid.prototype.down = function(){
 					}
 					else if(this.Board[i][j].value == tile.value){
 						this.Board[tile.x][tile.y].value *= 2;	
+						this.score += this.Board[tile.x][tile.y].value;
 						this.Board[i][j].value = 0;
 						cond = true;	
 						change = true;			
@@ -209,7 +213,8 @@ Grid.prototype.left = function(){
 						change = true;			
 					}
 					else if(this.Board[i][j].value == tile.value){
-						this.Board[tile.x][tile.y].value *= 2;	
+						this.Board[tile.x][tile.y].value *= 2;
+						this.score += this.Board[tile.x][tile.y].value;	
 						this.Board[i][j].value = 0;
 						cond = true; change = true;			
 					}
@@ -255,7 +260,8 @@ Grid.prototype.right = function(){
 						change = true;			
 					}
 					else if(this.Board[i][j].value == tile.value){
-						this.Board[tile.x][tile.y].value *= 2;	
+						this.Board[tile.x][tile.y].value *= 2;
+						this.score += this.Board[tile.x][tile.y].value;	
 						this.Board[i][j].value = 0;
 						cond = true;	 change = true;			
 					}
