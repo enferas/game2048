@@ -1,4 +1,5 @@
 window.onkeyup = function(e) {
+   e.preventDefault();
    var key = e.keyCode ? e.keyCode : e.which;
 
    var change = false;
@@ -18,12 +19,17 @@ window.onkeyup = function(e) {
 	if(this.grid.down())
 		change = true;
    }
-   else if(key == 32){
-	this.grid = new Grid(4);
-	change = true;
-	}
    if(change){
-   	this.grid.randbox();
-   	this.grid.print();
+	if(this.grid.finish==0){
+   		this.grid.randbox();
+   		this.grid.print();
 	}
+	return false;
+   }
+}
+
+function NewGame(){
+	this.grid = new Grid(4);
+	this.grid.randbox();
+   	this.grid.print();
 }

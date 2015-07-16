@@ -2,7 +2,10 @@ function Grid(size) {
   this.size = size;
   this.Board = [];
   this.score = 0;
-
+  this.finish = 0;
+  //0 it is not finish yet
+  //1 Win
+  //2 Game Over
 	for (var i = 0; i < this.size; i++) {
 	    var row = this.Board[i] = [];
 
@@ -91,8 +94,10 @@ Grid.prototype.randbox = function(){
 			}
 		}	
 	}
-	if(count==0)
+	if(count==0){
+		this.finish = 2;
 		return false;
+	}
 	var rand = Math.floor((Math.random() * 1000) + 1) % count;
 	var rand2 = Math.floor((Math.random() * 1000) + 1);
 	var v = 2;
@@ -121,7 +126,9 @@ Grid.prototype.up = function(){
 						this.score += this.Board[tile.x][tile.y].value;
 						this.Board[i][j].value = 0;
 						cond = true;	
-						change = true;			
+						change = true;
+						if(this.Board[tile.x][tile.y].value == 2048)
+							this.finish = 1;			
 					}
 					else if(i != tile.x+1){
 						this.Board[tile.x+1][tile.y].value = this.Board[i][j].value;
@@ -169,7 +176,9 @@ Grid.prototype.down = function(){
 						this.score += this.Board[tile.x][tile.y].value;
 						this.Board[i][j].value = 0;
 						cond = true;	
-						change = true;			
+						change = true;
+						if(this.Board[tile.x][tile.y].value == 2048)
+							this.finish = 1;	
 					}
 					else if(i != tile.x-1){
 						this.Board[tile.x-1][tile.y].value = this.Board[i][j].value;
@@ -216,7 +225,9 @@ Grid.prototype.left = function(){
 						this.Board[tile.x][tile.y].value *= 2;
 						this.score += this.Board[tile.x][tile.y].value;	
 						this.Board[i][j].value = 0;
-						cond = true; change = true;			
+						cond = true; change = true;	
+						if(this.Board[tile.x][tile.y].value == 2048)
+							this.finish = 1;		
 					}
 					else if(j != tile.y+1){
 						this.Board[tile.x][tile.y+1].value = this.Board[i][j].value;
@@ -263,7 +274,9 @@ Grid.prototype.right = function(){
 						this.Board[tile.x][tile.y].value *= 2;
 						this.score += this.Board[tile.x][tile.y].value;	
 						this.Board[i][j].value = 0;
-						cond = true;	 change = true;			
+						cond = true;	 change = true;		
+						if(this.Board[tile.x][tile.y].value == 2048)
+							this.finish = 1;	
 					}
 					else if(j != tile.y-1){
 						this.Board[tile.x][tile.y-1].value = this.Board[i][j].value;

@@ -14,12 +14,9 @@
 
 			<div class="container-title otto">  Game 2048  </div>
 		<div class="container-score">
-			<input type="submit" value="New Game" class="button-style" onclick="NewGame()"/>
-
 			<div class="score"> Score: </div>
 			<div id="score" class="container-title"> 0 </div>
-		</div>	
-			
+		</div>
 		</div>
 		<div class="container">
 		    <div class="box spacing move" id="Box11"></div>
