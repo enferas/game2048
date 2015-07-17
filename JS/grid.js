@@ -95,7 +95,6 @@ Grid.prototype.randbox = function(){
 		}	
 	}
 	if(count==0){
-		this.finish = 2;
 		return false;
 	}
 	var rand = Math.floor((Math.random() * 1000) + 1) % count;
@@ -105,6 +104,30 @@ Grid.prototype.randbox = function(){
 		v = 4;
 	this.Board[vec[rand].x][vec[rand].y].value = v;
 	return true;
+}
+
+Grid.prototype.gameover = function(){
+	for(var i=0;i<this.size;i++){
+		for(var j=0;j<this.size;j++){
+			if(this.Board[i][j].value==0){
+				return true;
+			}
+			if(i>0 && this.Board[i][j].value==this.Board[i-1][j].value){
+				return true;
+			}
+			if(j>0 && this.Board[i][j].value==this.Board[i][j-1].value){
+				return true;
+			}
+			if(i+1<this.size && this.Board[i][j].value==this.Board[i+1][j].value){
+				return true;
+			}
+			if(j+1<this.size && this.Board[i][j].value==this.Board[i][j+1].value){
+				return true;
+			}
+		}
+	}
+	this.finish = 2;
+	return false;
 }
 
 Grid.prototype.up = function(){

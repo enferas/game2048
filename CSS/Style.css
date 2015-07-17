@@ -14,7 +14,7 @@ body{
     margin: auto;
     overflow:hidden;
     width:400px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 .container-title{
 	position: relative;
@@ -40,20 +40,6 @@ body{
 
 .spacing{
     margin-right:4px;
-}
-
-.glow {
-  
-  position: relative;
-  color: #FF8C00;
-  text-shadow: 
-    1px 0px 1px #FFEFD5, 0px 1px 1px #708090, 
-    2px 1px 1px #FFEFD5, 1px 2px 1px #708090,
-    3px 2px 1px #FFEFD5, 2px 3px 1px #708090,
-    4px 3px 1px #FFEFD5, 3px 4px 1px #708090,
-    5px 4px 1px #FFEFD5, 4px 5px 1px #708090,
-    6px 5px 1px #FFEFD5, 5px 6px 1px #708090,
-    7px 6px 1px #FFEFD5;
 }
 
 h1 {
@@ -143,4 +129,15 @@ img.bg {
 	border:1px solid #1A87B9
 } 
 
-
+.text{
+    width: 500px;
+    margin: auto;
+    position: relative;
+    padding:5px 10px;
+    background:rgba(69, 150, 237, 0.6);
+    font-style:italic;
+    color: white;
+    font-size: 20px;
+    visibility: hidden;
+    margin-bottom: 20px;
+}
